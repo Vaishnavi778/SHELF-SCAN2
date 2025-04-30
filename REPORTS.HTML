@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelf Scan - Reports</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <h2><span class="material-icons">handshake</span> Shelf Scan</h2>
+        <div id="username-display"></div>
+        <ul>
+            <li><a href="index.html"><span class="material-icons">dashboard</span> Dashboard</a></li>
+            <li><a href="product-id.html"><span class="material-icons">list</span> Product ID</a></li>
+            <li class="active"><a href="reports.html"><span class="material-icons">assessment</span> Reports</a></li>
+            <li><a href="billing.html"><span class="material-icons">receipt</span> Billing</a></li>
+            <li><a href="settings.html"><span class="material-icons">settings</span> Settings</a></li>
+            <li><a href="#" id="logout-btn"><span class="material-icons">logout</span> Logout</a></li>
+        </ul>
+        <div id="credit"><p>© Shelf Scan | 2025</p></div>
+    </div>
+
+    <div class="dashboard reports-page">
+        <h2>Sales Reports</h2>
+        <div class="report-controls">
+            <label for="sales-date-filter">Filter by Date:</label>
+            <input type="date" id="sales-date-filter">
+            <label for="sales-category-filter">Filter by Category:</label>
+            <select id="sales-category-filter">
+                <option value="All">All Categories</option>
+                <option value="Foods">Foods</option>
+                <option value="Drawing File">Drawing File</option>
+                <option value="Basic Necessities">Basic Necessities</option>
+                <option value="Shampoo">Shampoo</option>
+                <option value="Soap">Soap</option>
+                <option value="Brand Me Chocolates">Brand Me Chocolates</option>
+                <option value="Beverages">Beverages</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Stationery">Stationery</option>
+                <option value="Other">Other</option>
+            </select>
+            <button id="generate-sales-report" aria-label="Generate Sales Report"><i class="material-icons">filter_list</i> Filter</button>
+            <button id="download-sales-csv" aria-label="Download Sales as CSV"><i class="material-icons">download</i> Download CSV</button>
+            <button id="clear-sales-data" aria-label="Clear Sales Data"><i class="material-icons">delete</i> Clear Data</button>
+        </div>
+        <div class="sales-summary">
+            <div class="box total-sales" aria-label="Total Sales">
+                <span class="material-icons">attach_money</span>
+                <p>Total Sales</p>
+                <h2 id="total-sales">$0.00</h2>
+            </div>
+            <div class="box total-items" aria-label="Total Items Sold">
+                <span class="material-icons">shopping_cart</span>
+                <p>Total Items Sold</p>
+                <h2 id="total-items">0</h2>
+            </div>
+            <div class="box average-sale" aria-label="Average Sale">
+                <span class="material-icons">trending_up</span>
+                <p>Average Sale</p>
+                <h2 id="average-sale">$0.00</h2>
+            </div>
+            <div class="box most-sold" aria-label="Most Sold Item">
+                <span class="material-icons">star</span>
+                <p>Most Sold Item</p>
+                <h2 id="most-sold">N/A</h2>
+            </div>
+            <div class="box least-sold" aria-label="Least Sold Item">
+                <span class="material-icons">star_border</span>
+                <p>Least Sold Item</p>
+                <h2 id="least-sold">N/A</h2>
+            </div>
+        </div>
+        <table role="grid">
+            <thead>
+                <tr>
+                    <th data-sort="bill_id" role="columnheader" aria-sort="none">Bill ID</th>
+                    <th data-sort="session_id" role="columnheader" aria-sort="none">Session ID</th>
+                    <th data-sort="product_id" role="columnheader" aria-sort="none">Product ID</th>
+                    <th data-sort="name" role="columnheader" aria-sort="none">Product Name</th>
+                    <th data-sort="category" role="columnheader" aria-sort="none">Category</th>
+                    <th data-sort="quantity" role="columnheader" aria-sort="none">Quantity</th>
+                    <th data-sort="price" role="columnheader" aria-sort="none">Price per Unit</th>
+                    <th data-sort="total" role="columnheader" aria-sort="none">Total</th>
+                    <th data-sort="date" role="columnheader" aria-sort="none">Date</th>
+                </tr>
+            </thead>
+            <tbody id="sales-list"></tbody>
+        </table>
+    </div>
+
+    <script src="reports.js"></script>
+    <script src="logout.js"></script>
+</body>
+</html>

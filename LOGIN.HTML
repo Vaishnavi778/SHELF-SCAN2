@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Shelf Scan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <form id="login-form" aria-label="Login Form">
+            <h1>
+                <span class="material-icons">inventory</span>
+                Shelf Scan Login
+            </h1>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter Email" aria-label="Email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter Password" aria-label="Password" required>
+            </div>
+            <p id="login-error" style="color: red; display: none;">Invalid email or password.</p>
+            <button type="submit" aria-label="Sign In">
+                <i class="material-icons">login</i> Sign In
+            </button>
+        </form>
+        <div id="credit">Developed by xAI | © Shelf Scan 2025</div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelf Scan - Product ID</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <h2><span class="material-icons">handshake</span> Shelf Scan</h2>
+        <div id="username-display"></div>
+        <ul>
+            <li><a href="index.html"><span class="material-icons">dashboard</span> Dashboard</a></li>
+            <li class="active"><a href="product-id.html"><span class="material-icons">list</span> Product ID</a></li>
+            <li><a href="reports.html"><span class="material-icons">assessment</span> Reports</a></li>
+            <li><a href="billing.html"><span class="material-icons">receipt</span> Billing</a></li>
+            <li><a href="settings.html"><span class="material-icons">settings</span> Settings</a></li>
+            <li><a href="#" id="logout-btn"><span class="material-icons">logout</span> Logout</a></li>
+        </ul>
+        <div id="credit"><p>© Shelf Scan | 2025</p></div>
+    </div>
+
+    <div class="dashboard product-id-page">
+        <h2>Product ID Search</h2>
+        <div class="search-bar">
+            <select id="search-criteria" aria-label="Search Criteria">
+                <option value="product_id">Product ID</option>
+                <option value="name">Product Name</option>
+                <option value="category">Category</option>
+            </select>
+            <input type="text" id="product-search" placeholder="Enter search term" aria-label="Search Term">
+            <button id="search-btn" aria-label="Search Product"><i class="material-icons">search</i> Search</button>
+        </div>
+        <table role="grid">
+            <thead>
+                <tr>
+                    <th data-sort="product_id" role="columnheader" aria-sort="none">Product ID</th>
+                    <th data-sort="name" role="columnheader" aria-sort="none">Product Name</th>
+                    <th data-sort="category" role="columnheader" aria-sort="none">Category</th>
+                    <th data-sort="mfg_date" role="columnheader" aria-sort="none">MFG Date</th>
+                    <th data-sort="expiry_date" role="columnheader" aria-sort="none">Expiry Date</th>
+                    <th data-sort="status" role="columnheader" aria-sort="none">Status</th>
+                </tr>
+            </thead>
+            <tbody id="product-results"></tbody>
+        </table>
+    </div>
+
+    <script src="product-id.js"></script>
+    <script src="logout.js"></script>
+</body>
+</html>

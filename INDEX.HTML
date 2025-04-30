@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelf Scan - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <script src="https://unpkg.com/quagga@0.12.1/dist/quagga.min.js" onerror="alert('Failed to load QuaggaJS library. Please check your internet connection and try again.');"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2><span class="material-icons">handshake</span> Shelf Scan</h2>
+        <div id="username-display"></div>
+        <ul>
+            <li class="active"><a href="index.html"><span class="material-icons">dashboard</span> Dashboard</a></li>
+            <li><a href="product-id.html"><span class="material-icons">list</span> Product ID</a></li>
+            <li><a href="reports.html"><span class="material-icons">assessment</span> Reports</a></li>
+            <li><a href="billing.html"><span class="material-icons">receipt</span> Billing</a></li>
+            <li><a href="settings.html"><span class="material-icons">settings</span> Settings</a></li>
+            <li><a href="#" id="logout-btn"><span class="material-icons">logout</span> Logout</a></li>
+        </ul>
+        <div id="credit"><p>© Shelf Scan | 2025</p></div>
+    </div>
+
+    <div class="dashboard dashboard-page">
+        <div class="summary">
+            <div class="box total" aria-label="Total Products">
+                <span class="material-icons">list</span>
+                <p>Total Products</p>
+                <h2 id="total">0</h2>
+            </div>
+            <div class="box expired" aria-label="Total Expired">
+                <span class="material-icons">cancel</span>
+                <p>Total Expired</p>
+                <h2 id="expired">0</h2>
+            </div>
+            <div class="box warning" aria-label="Total Warnings">
+                <span class="material-icons">warning</span>
+                <p>Total Warnings</p>
+                <h2 id="warning">0</h2>
+            </div>
+            <div class="box safe" aria-label="Total Safe">
+                <span class="material-icons">check_circle</span>
+                <p>Total Safe</p>
+                <h2 id="safe">0</h2>
+            </div>
+        </div>
+
+        <h2>Add New Product</h2>
+        <form id="product-form" aria-label="Add Product Form">
+            <input type="text" id="product-name" placeholder="Product Name" required aria-required="true">
+            <input type="text" id="product-id" placeholder="Product ID (scan or type)" required aria-required="true">
+            <input type="date" id="mfg-date" placeholder="Manufacturing Date" required aria-required="true">
+            <input type="date" id="expiry-date" placeholder="Expiry Date" required aria-required="true">
+            <input type="number" id="price" placeholder="Price per Unit" step="0.01" min="0" required aria-required="true">
+            <input type="number" id="quantity" placeholder="Quantity" min="1" required aria-required="true">
+            <select id="category" required aria-required="true">
+                <option value="" disabled selected>Select Category</option>
+                <option value="Foods">Foods</option>
+                <option value="Drawing File">Drawing File</option>
+                <option value="Basic Necessities">Basic Necessities</option>
+                <option value="Shampoo">Shampoo</option>
+                <option value="Soap">Soap</option>
+                <option value="Brand Me Chocolates">Brand Me Chocolates</option>
+                <option value="Beverages">Beverages</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Stationery">Stationery</option>
+                <option value="Other">Other</option>
+            </select>
+            <button type="submit" aria-label="Add Product"><i class="material-icons">add_circle</i> Add</button>
+            <button type="button" id="scan-btn" aria-label="Scan Barcode"><i class="material-icons">barcode_reader</i> Scan</button>
+        </form>
+        <div id="scanner-container" style="display: none;">
+            <p id="scanner-status" style="color: #2c3e50; margin-bottom: 10px;">Initializing scanner...</p>
+            <div id="qr-reader" style="width: 100%; max-width: 400px;"></div>
+            <button id="stop-scan-btn" aria-label="Stop Scanning"><i class="material-icons">stop</i> Stop</button>
+        </div>
+
+        <h2>Product List</h2>
+        <table role="grid">
+            <thead>
+                <tr>
+                    <th id="Product Name" data-sort="name" role="columnheader" aria-sort="none">Product Name</th>
+                    <th data-sort="product_id" role="columnheader" aria-sort="none">Product ID</th>
+                    <th data-sort="mfg_date" role="columnheader" aria-sort="none">MFG Date</th>
+                    <th data-sort="price" role="columnheader" aria-sort="none">Price</th>
+                    <th data-sort="quantity" role="columnheader" aria-sort="none">Quantity</th>
+                    <th data-sort="category" role="columnheader" aria-sort="none">Category</th>
+                    <th data-sort="expiry_date" role="columnheader" aria-sort="none">Expiry Date</th>
+                    <th data-sort="status" role="columnheader" aria-sort="none">Status</th>
+                    <th id="action" role="columnheader">Action</th>
+                </tr>
+            </thead>
+            <tbody id="product-list"></tbody>
+        </table>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script src="logout.js"></script>
+</body>
+</html>

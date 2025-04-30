@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelf Scan - Billing</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <script src="https://unpkg.com/quagga@0.12.1/dist/quagga.min.js" onerror="alert('Failed to load QuaggaJS library. Please check your internet connection and try again.');"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2><span class="material-icons">handshake</span> Shelf Scan</h2>
+        <div id="username-display"></div>
+        <ul>
+            <li><a href="index.html"><span class="material-icons">dashboard</span> Dashboard</a></li>
+            <li><a href="product-id.html"><span class="material-icons">list</span> Product ID</a></li>
+            <li><a href="reports.html"><span class="material-icons">assessment</span> Reports</a></li>
+            <li class="active"><a href="billing.html"><span class="material-icons">receipt</span> Billing</a></li>
+            <li><a href="settings.html"><span class="material-icons">settings</span> Settings</a></li>
+            <li><a href="#" id="logout-btn"><span class="material-icons">logout</span> Logout</a></li>
+        </ul>
+        <div id="credit"><p>© Shelf Scan | 2025</p></div>
+    </div>
+
+    <div class="dashboard billing-page">
+        <h2>Billing</h2>
+        <div class="billing-controls">
+            <label for="bill-date-filter">Filter by Date:</label>
+            <input type="date" id="bill-date-filter">
+            <label for="bill-session-filter">Filter by Session:</label>
+            <select id="bill-session-filter">
+                <option value="All">All Sessions</option>
+            </select>
+            <button id="generate-bill-report" aria-label="Generate Bill Report"><i class="material-icons">filter_list</i> Filter</button>
+            <button id="total-bill-btn" aria-label="Generate Total Bill"><i class="material-icons">receipt</i> Total Bill</button>
+            <button id="download-bills-csv" aria-label="Download Bills as CSV"><i class="material-icons">download</i> Download CSV</button>
+        </div>
+
+        <form id="bill-form" aria-label="Add Bill Form">
+            <select id="product-search" aria-label="Search Product">
+                <option value="" disabled selected>Select Product</option>
+            </select>
+            <input type="text" id="product-id" placeholder="Product ID (scan or select)" readonly aria-required="true">
+            <input type="text" id="product-name" placeholder="Product Name" readonly aria-required="true">
+            <input type="number" id="price" placeholder="Price per Unit" step="0.01" readonly aria-required="true">
+            <input type="text" id="category" placeholder="Category" readonly aria-required="true">
+            <input type="number" id="quantity" placeholder="Quantity" min="1" required aria-required="true">
+            <button type="submit" aria-label="Add Bill"><i class="material-icons">add_circle</i> Add</button>
+            <button type="button" id="scan-btn" aria-label="Scan Barcode"><i class="material-icons">barcode_reader</i> Scan</button>
+        </form>
+        <div id="scanner-container" style="display: none;">
+            <p id="scanner-status" style="color: #2c3e50; margin-bottom: 10px;">Initializing scanner...</p>
+            <div id="qr-reader" style="width: 100%; max-width: 400px;"></div>
+            <button id="stop-scan-btn" aria-label="Stop Scanning"><i class="material-icons">stop</i> Stop</button>
+        </div>
+
+        <table role="grid">
+            <thead>
+                <tr>
+                    <th data-sort="bill_id" role="columnheader" aria-sort="none">Bill ID</th>
+                    <th data-sort="session_id" role="columnheader" aria-sort="none">Session ID</th>
+                    <th data-sort="product_id" role="columnheader" aria-sort="none">Product ID</th>
+                    <th data-sort="name" role="columnheader" aria-sort="none">Product Name</th>
+                    <th data-sort="category" role="columnheader" aria-sort="none">Category</th>
+                    <th data-sort="mfg_date" role="columnheader" aria-sort="none">MFG Date</th>
+                    <th data-sort="quantity" role="columnheader" aria-sort="none">Quantity</th>
+                    <th data-sort="price" role="columnheader" aria-sort="none">Price per Unit</th>
+                    <th data-sort="total" role="columnheader" aria-sort="none">Total</th>
+                    <th data-sort="date" role="columnheader" aria-sort="none">Date</th>
+                </tr>
+            </thead>
+            <tbody id="bill-list"></tbody>
+        </table>
+    </div>
+
+    <script src="billing.js"></script>
+    <script src="logout.js"></script>
+</body>
+</html>
