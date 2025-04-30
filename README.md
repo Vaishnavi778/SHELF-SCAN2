@@ -1,3 +1,8 @@
+Teammates:
+Vaishnavi Goswami (2301010372)
+Shreya (2301010376)
+
+Description:
 The Shelf Scan System is a comprehensive web-based solution designed to 
 revolutionize retail inventory management for small to medium-sized stores. 
 Built using HTML, CSS, JavaScript, and QuaggaJS for barcode scanning, it 
@@ -12,3 +17,13 @@ Warning, Expired), session-based billing, and hardware scanner support, making
 it a versatile tool for retailers. By automating inventory processes, the Shelf Scan 
 System minimizes errors, reduces stockouts, and enhances operational 
 efficiency, delivering a cost-effective and user-friendly solution.
+
+Technoligies used
+1. Html
+2. CSS
+3. JavaScript
+4. QuaggaJS
+
+Video link : https://drive.google.com/file/d/1W3lGcrjrGVfFcANFM0YwqGNZfsT3bmx6/view?usp=drive_link
+
+
