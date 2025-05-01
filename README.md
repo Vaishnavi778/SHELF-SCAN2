@@ -26,5 +26,6 @@ Technoligies used
 
 Video link :https://drive.google.com/file/d/1FgjrQ_FN-A_d5XzItcQpeKaVpku4iph-/view?usp=drive_link
 report link:https://drive.google.com/file/d/1jsbRz5LVfAYMu-AG5biC9RXJSOuRAvUn/view?usp=drive_link
+presentation link:https://docs.google.com/presentation/d/1jb4XXJkvWsLZs0WwIB4XhPJwFeiHdMbV/edit?usp=drive_link&ouid=100766676897762997079&rtpof=true&sd=true
 
 
